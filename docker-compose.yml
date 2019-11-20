@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.11.6
+    ports:
+        - 81:80
+    volumes:
+        - ./nginx:/etc/nginx/conf.d/
+        - ./nginx/log:/var/log/nginx/
+        - ./dist:/usr/share/nginx/html:ro
+    command: /bin/bash -c "nginx -g 'daemon off;'"
+    
